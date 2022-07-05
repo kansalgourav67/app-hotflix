@@ -1,6 +1,13 @@
 <div class="app-container">
-  <app-nav-bar></app-nav-bar>
-  <app-category-tree></app-category-tree>
+  <div class="nav-bar">
+    <app-nav-bar></app-nav-bar>
+    <app-category-tree></app-category-tree>
+    <mat-progress-bar
+      *ngIf="isLoading"
+      mode="indeterminate"
+      class="loader"
+    ></mat-progress-bar>
+  </div>
   <div class="app-body">
     <router-outlet></router-outlet>
   </div>

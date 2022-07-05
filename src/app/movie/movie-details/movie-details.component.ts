@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Movie } from 'src/app/core/models/movie.interface';
 import { User, UserPreferences } from 'src/app/core/models/user.interface';
+import { AppService } from 'src/app/core/services/app.service';
 import { AuthenticationService } from 'src/app/core/services/authentication.service';
 import { MovieService } from 'src/app/core/services/movie.service';
 import { PrimeSubscriptionService } from 'src/app/core/services/prime-subscription.service';
@@ -43,76 +44,68 @@ export class MovieDetailsComponent implements OnInit {
     private authService: AuthenticationService,
     private userService: UserService,
     private toastService: ToastService,
-    private primeSubscriptionService: PrimeSubscriptionService
+    private primeSubscriptionService: PrimeSubscriptionService,
+    private appService: AppService
   ) {}
 
   ngOnInit(): void {
     const id = +(this.route.snapshot.paramMap.get('id') as string);
-    this.getMovieById(id);
+    this.movie = this.movieService.getMovieById(id);
     this.getUserAndPreferences();
   }
 
   public watchNowClickedEvent(): void {
-    if (this.isUserLoggedIn()) {
-      if (
-        this.movie.isPrime &&
-        !this.primeSubscriptionService.hasUserPrimeSubscription(this.user)
-      ) {
-        this.toastService.showToastMessage(
-          'Prime membership is required to watch this content',
-          'mat-warn'
-        );
-      } else {
-        // set the status of movie to watched.
-        this.userPreferences =
-          this.userPreferences ?? this.initializeUserPreference();
-        this.userPreferences.watched = true;
-        this.updateUserPreferences(
-          this.userPreferences,
-          'Watched successfully'
-        );
-      }
-    } else {
-      this.navigateToLoginPage();
-    }
+    this.appService.isLoading(true);
+
+    setTimeout(() => {
+      this.watchMovie();
+      this.appService.isLoading(false);
+    }, 2500);
   }
 
   public toggleWatchLater(): void {
-    if (this.isUserLoggedIn()) {
-      // set the status of movie to watch later.
-      this.userPreferences =
-        this.userPreferences ?? this.initializeUserPreference();
-      this.userPreferences.watchLater = !this.userPreferences.watchLater;
-      this.updateUserPreferences(
-        this.userPreferences,
-        this.userPreferences.watchLater
-          ? 'Added to watch later'
-          : 'Removed from watch later'
-      );
-    } else {
-      this.navigateToLoginPage();
-    }
+    this.appService.isLoading(true);
+
+    setTimeout(() => {
+      if (this.isUserLoggedIn()) {
+        // set the status of movie to watch later.
+        this.userPreferences =
+          this.userPreferences ?? this.initializeUserPreference();
+        this.userPreferences.watchLater = !this.userPreferences.watchLater;
+        this.updateUserPreferences(
+          this.userPreferences,
+          this.userPreferences.watchLater
+            ? 'Added to watch later'
+            : 'Removed from watch later'
+        );
+      } else {
+        this.navigateToLoginPage();
+      }
+      this.appService.isLoading(false);
+    }, 1500);
   }
 
   public toggleFavorite(): void {
-    if (this.isUserLoggedIn()) {
-      // set the status of movie to favorite.
-      this.userPreferences =
-        this.userPreferences ?? this.initializeUserPreference();
-      this.userPreferences.isFavorite = !this.userPreferences?.isFavorite;
-      this.updateUserPreferences(
-        this.userPreferences,
-        this.userPreferences.isFavorite
-          ? 'Added to favorites'
-          : 'Removed from favorites'
-      );
-    } else {
-      this.navigateToLoginPage();
-    }
-  }
+    this.appService.isLoading(true);
 
-  private getMovieById(id: number): void {
-    this.movie = this.movieService.getMovieById(id);
+    setTimeout(() => {
+      if (this.isUserLoggedIn()) {
+        // set the status of movie to favorite.
+        this.userPreferences =
+          this.userPreferences ?? this.initializeUserPreference();
+        this.userPreferences.isFavorite = !this.userPreferences?.isFavorite;
+        this.updateUserPreferences(
+          this.userPreferences,
+          this.userPreferences.isFavorite
+            ? 'Added to favorites'
+            : 'Removed from favorites'
+        );
+      } else {
+        this.navigateToLoginPage();
+      }
+
+      this.appService.isLoading(false);
+    }, 1500);
   }
 
   private getUserAndPreferences(): void {
@@ -161,5 +154,30 @@ export class MovieDetailsComponent implements OnInit {
       watchLater: false,
       watched: false,
     } as UserPreferences;
+  }
+
+  private watchMovie(): void {
+    if (this.isUserLoggedIn()) {
+      if (
+        this.movie.isPrime &&
+        !this.primeSubscriptionService.hasUserPrimeSubscription(this.user)
+      ) {
+        this.toastService.showToastMessage(
+          'Prime membership is required to watch this content',
+          'mat-warn'
+        );
+      } else {
+        // set the status of movie to watched.
+        this.userPreferences =
+          this.userPreferences ?? this.initializeUserPreference();
+        this.userPreferences.watched = true;
+        this.updateUserPreferences(
+          this.userPreferences,
+          'Watched successfully'
+        );
+      }
+    } else {
+      this.navigateToLoginPage();
+    }
   }
 }

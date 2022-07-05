@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AppService } from '../core/services/app.service';
 import { AuthenticationService } from '../core/services/authentication.service';
 
 @Component({
@@ -17,7 +18,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private router: Router,
     private fb: FormBuilder,
-    private authenticationService: AuthenticationService
+    private authenticationService: AuthenticationService,
+    private appService: AppService
   ) {}
 
   ngOnInit(): void {
@@ -30,6 +32,14 @@ export class LoginComponent implements OnInit {
   public onSubmit(): void {
     const { emailId, password } = this.loginForm.value;
 
+    this.appService.isLoading(true);
+    setTimeout(() => {
+      this.loginUser(emailId, password);
+      this.appService.isLoading(false);
+    }, 2000);
+  }
+
+  private loginUser(emailId: string, password: string): void {
     if (this.authenticationService.loginUser(emailId, password)) {
       this.isAuthenticated = true;
       this.router.navigate(['']);

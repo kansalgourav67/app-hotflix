@@ -18,6 +18,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AccessDeniedComponent } from './access-denied/access-denied.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 export function HttpLoaderFactory(httpClient: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(httpClient);
@@ -29,6 +30,7 @@ export function HttpLoaderFactory(httpClient: HttpClient): TranslateHttpLoader {
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    MatProgressBarModule,
     MatSnackBarModule,
     MatButtonModule,
     DashboardModule,

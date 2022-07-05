@@ -7,6 +7,7 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Movie } from 'src/app/core/models/movie.interface';
+import { AppService } from 'src/app/core/services/app.service';
 import { MovieService } from 'src/app/core/services/movie.service';
 import { ToastService } from 'src/app/core/services/toast.service';
 
@@ -26,7 +27,8 @@ export class AddMovieComponent implements OnInit {
     private fb: FormBuilder,
     private movieService: MovieService,
     private router: Router,
-    private toastService: ToastService
+    private toastService: ToastService,
+    private appService: AppService
   ) {}
 
   ngOnInit(): void {
@@ -65,6 +67,24 @@ export class AddMovieComponent implements OnInit {
       categoryId: [],
     };
 
+    this.appService.isLoading(true);
+    // settimeout is used to enable the loader i.e. to feel real time app.
+    setTimeout(() => {
+      this.addMovie(movie);
+      this.appService.isLoading(false);
+    }, 2000);
+  }
+
+  private getRandomMovieId(): number {
+    // id is calculated on the base of the seconds that elapsed since 1 Jan 1970. (reference taken from google).
+    return Math.round(new Date().getTime() / 1000);
+  }
+
+  private getMovieLanguage(language: string): string {
+    return language === 'Both' ? 'English/Hindi' : language;
+  }
+
+  private addMovie(movie: Movie): void {
     try {
       this.movieService.addMovie(movie);
       this.toastService.showToastMessage('Added successfully', 'mat-accent');
@@ -75,14 +95,5 @@ export class AddMovieComponent implements OnInit {
         'mat-warn'
       );
     }
-  }
-
-  private getRandomMovieId(): number {
-    // id is calculated on the base of the seconds that elapsed since 1 Jan 1970. (reference taken from google).
-    return Math.round(new Date().getTime() / 1000);
-  }
-
-  private getMovieLanguage(language: string): string {
-    return language === 'Both' ? 'English/Hindi' : language;
   }
 }

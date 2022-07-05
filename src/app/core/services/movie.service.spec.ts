@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { Movie } from '../models/movie.interface';
-import { MovieCategory } from '../models/product-category.interface';
+import { MovieCategory } from '../models/movie-category.interface';
 import { MovieService } from './movie.service';
 
 describe('MovieService', () => {

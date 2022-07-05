@@ -3,7 +3,7 @@ import { Observable, of } from 'rxjs';
 import * as movies from '../../../assets/mock-data/movies.json';
 import * as moviesCategories from '../../../assets/mock-data/movie-categories.json';
 import { Movie } from '../models/movie.interface';
-import { MovieCategory } from '../models/product-category.interface';
+import { MovieCategory } from '../models/movie-category.interface';
 
 @Injectable({
   providedIn: 'root',

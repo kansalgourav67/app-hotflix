@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { MovieCategory } from 'src/app/core/models/product-category.interface';
+import { MovieCategory } from 'src/app/core/models/movie-category.interface';
 import { MovieService } from 'src/app/core/services/movie.service';
 
 @Component({

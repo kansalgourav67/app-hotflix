@@ -6,11 +6,9 @@ import { Movie } from 'src/app/core/models/movie.interface';
   templateUrl: './watchlist-carousel.component.html',
   styleUrls: ['./watchlist-carousel.component.scss'],
 })
-export class WatchlistCarouselComponent implements OnInit {
+export class WatchlistCarouselComponent {
   @Input()
   public movies: Movie[];
 
   constructor() {}
-
-  ngOnInit(): void {}
 }

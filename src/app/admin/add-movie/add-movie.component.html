@@ -1,0 +1,214 @@
+<div
+  class="container card"
+  flex
+  fxLayout="row"
+  fxLayout.xs="column"
+  fxLayoutGap="20px"
+  fxLayoutGap.xs="2px"
+  fxLayoutGap.sm="3px"
+>
+  <div fxFlex="40">
+    <img [src]="imageUrl" alt="Image not found" />
+  </div>
+  <div fxFlex="60">
+    <mat-card>
+      <mat-card-title>
+        <div class="card-title">{{ "ADMIN.ADD_NEW_CONTENT" | translate }}</div>
+        <div class="prime-toggle">
+          <mat-slide-toggle
+            matTooltip="This content is for prime members"
+            [matTooltipPosition]="position.value!"
+            [(ngModel)]="isPrime"
+            >Prime</mat-slide-toggle
+          >
+        </div>
+      </mat-card-title>
+
+      <mat-card-content>
+        <mat-divider></mat-divider>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div>
+            <div fxLayout="row">
+              <div class="mt-md" fxFlex="20">
+                {{ "ADMIN.NAME_FIELD" | translate }}
+              </div>
+              <div fxFlex="80">
+                <mat-form-field class="mt-md full-width">
+                  <input
+                    formControlName="name"
+                    matInput
+                    placeholder="{{
+                      'ADMIN.NAME_FIELD_PLACEHOLDER' | translate
+                    }}"
+                  />
+                </mat-form-field>
+                <mat-error>
+                  <span
+                    *ngIf="
+                      !form.get('name')?.valid && form.get('name')?.touched
+                    "
+                    >{{ "ADMIN.FIELD_REQUIRED" | translate }}</span
+                  >
+                </mat-error>
+              </div>
+            </div>
+            <div fxLayout="row">
+              <div fxFlex="20">{{ "ADMIN.TITLE_FIELD" | translate }}</div>
+              <div fxFlex="80">
+                <mat-form-field class="full-width">
+                  <input
+                    formControlName="title"
+                    matInput
+                    placeholder="{{
+                      'ADMIN.TITLE_FIELD_PLACEHOLDER' | translate
+                    }}"
+                  />
+                </mat-form-field>
+                <mat-error>
+                  <span
+                    *ngIf="
+                      !form.get('title')?.valid && form.get('title')?.touched
+                    "
+                    >{{ "ADMIN.FIELD_REQUIRED" | translate }}</span
+                  >
+                </mat-error>
+              </div>
+            </div>
+            <div fxLayout="row">
+              <div fxFlex="20">{{ "ADMIN.DESCRIPTION_FIELD" | translate }}</div>
+              <div fxFlex="80">
+                <mat-form-field class="full-width">
+                  <textarea
+                    formControlName="description"
+                    placeholder="{{
+                      'ADMIN.DESCRIPTION_FIELD_PLACEHOLDER' | translate
+                    }}"
+                    matInput
+                    [matTextareaAutosize]="true"
+                    [matAutosizeMinRows]="5"
+                  ></textarea>
+                </mat-form-field>
+                <mat-error>
+                  <span
+                    *ngIf="
+                      !form.get('description')?.valid &&
+                      form.get('description')?.touched
+                    "
+                    >{{ "ADMIN.FIELD_REQUIRED" | translate }}</span
+                  >
+                </mat-error>
+              </div>
+            </div>
+            <div fxLayout="row">
+              <div fxFlex="20">{{ "ADMIN.LANGUAGE_FIELD" | translate }}</div>
+              <div fxFlex="80">
+                <mat-radio-group formControlName="language">
+                  <mat-radio-button class="ml-sm" value="English">{{
+                    "ADMIN.ENGLISH_LABEL" | translate
+                  }}</mat-radio-button>
+                  <mat-radio-button class="ml-sm" value="Hindi">{{
+                    "ADMIN.HINDI_LABEL" | translate
+                  }}</mat-radio-button>
+                  <mat-radio-button class="ml-sm" value="Both">{{
+                    "ADMIN.BOTH_LABEL" | translate
+                  }}</mat-radio-button>
+                </mat-radio-group>
+              </div>
+            </div>
+            <div class="mt-md" fxLayout="row">
+              <div fxFlex="50">
+                <div fxFlex="40">{{ "ADMIN.GENRE_FIELD" | translate }}</div>
+                <div fxFlex="60">
+                  <mat-form-field>
+                    <mat-select
+                      formControlName="genre"
+                      placeholder="{{
+                        'ADMIN.GENRE_FIELD_PLACEHOLDER' | translate
+                      }}"
+                    >
+                      <mat-option value="Action">{{
+                        "ADMIN.ACTION_LABEL" | translate
+                      }}</mat-option>
+                      <mat-option value="Comedy">{{
+                        "ADMIN.COMEDY_LABEL" | translate
+                      }}</mat-option>
+                      <mat-option value="Horror">{{
+                        "ADMIN.HORROR_LABEL" | translate
+                      }}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div fxFlex="50">
+                <div fxFlex="40">
+                  {{ "ADMIN.IMDB_RATING_FIELD" | translate }}
+                </div>
+                <div fxFlex="60">
+                  <mat-form-field class="full-width">
+                    <input
+                      matInput
+                      type="number"
+                      placeholder="Ex. 8.1"
+                      formControlName="imdbRating"
+                      min="0"
+                      max="10"
+                    />
+                  </mat-form-field>
+                  <mat-error>
+                    <span
+                      *ngIf="
+                        !form.get('imdbRating')?.valid &&
+                        form.get('imdbRating')?.touched
+                      "
+                      >{{ "ADMIN.INVALID_INPUT" | translate }}</span
+                    >
+                  </mat-error>
+                </div>
+              </div>
+            </div>
+            <div fxLayout="row">
+              <div fxFlex="50">
+                <div fxFlex="40">{{ "ADMIN.DURATION_FIELD" | translate }}</div>
+                <div fxFlex="60">
+                  <mat-form-field class="full-width">
+                    <input
+                      matInput
+                      type="number"
+                      placeholder="{{
+                        'ADMIN.DURATION_FIELD_PLACEHOLDER' | translate
+                      }}"
+                      formControlName="duration"
+                      min="0"
+                    />
+                  </mat-form-field>
+                  <mat-error>
+                    <span
+                      *ngIf="
+                        !form.get('duration')?.valid &&
+                        form.get('duration')?.touched
+                      "
+                      >{{ "ADMIN.INVALID_INPUT" | translate }}</span
+                    >
+                  </mat-error>
+                </div>
+              </div>
+            </div>
+            <div fxLayout="row">
+              <div fxFlex="20"></div>
+              <div fxFlex="40">
+                <button
+                  class="full-width mt-md"
+                  mat-raised-button
+                  color="primary"
+                  [disabled]="!form.valid"
+                >
+                  {{ "ADMIN.ADD_BUTTON" | translate }}
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

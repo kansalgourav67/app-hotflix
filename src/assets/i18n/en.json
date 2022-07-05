@@ -1,0 +1,82 @@
+{
+  "APP": {
+    "FOOTER": "Hotflix(2022-23). This application deals with local storage. Click button to",
+    "ACCESS_DENIED": "You don't have permission to view this content.",
+    "PAGE_NOT_FOUND": "404 Page Not Found"
+  },
+
+  "ADMIN": {
+    "ADD_NEW_CONTENT": "Add new content",
+    "NAME_FIELD": "Name",
+    "DESCRIPTION_FIELD": "Description",
+    "TITLE_FIELD": "Title",
+    "GENRE_FIELD": "Genre",
+    "LANGUAGE_FIELD": "Language",
+    "NAME_FIELD_PLACEHOLDER": "Enter name",
+    "FIELD_REQUIRED": "Required",
+    "TITLE_FIELD_PLACEHOLDER": "Enter title",
+    "DESCRIPTION_FIELD_PLACEHOLDER": "Enter Description",
+    "ENGLISH_LABEL": "English",
+    "HINDI_LABEL": "Hindi",
+    "BOTH_LABEL": "Both",
+    "GENRE_FIELD_PLACEHOLDER": "Select",
+    "ACTION_LABEL": "Action",
+    "COMEDY_LABEL": "Comedy",
+    "HORROR_LABEL": "Horror",
+    "IMDB_RATING_FIELD": "IMDB Rating",
+    "INVALID_INPUT": "Invalid input",
+    "DURATION_FIELD": "Enter duration",
+    "DURATION_FIELD_PLACEHOLDER": "Enter duration in minutes",
+    "ADD_BUTTON": "Add",
+    "RESET_BUTTON": "Reset",
+    "ADMINISTRATION_LABEL": "Administration",
+    "ADMIN_SUBHEADING_LABEL": "Manage Movies and Shows"
+  },
+  "NAVBAR": {
+    "MOVIES": "Movies",
+    "PROFILE": "Profile",
+    "PRIME_MEMBERSHIP": "Prime Subscription",
+    "PRIME_MEMBER": "Prime Member",
+    "PRIME_MOVIES": "Prime Movies",
+    "WATCHLIST": "Watchlist",
+    "MANAGE_MOVIES": "Administration",
+    "LOGIN": "Login",
+    "LOGOUT": "Logout"
+  },
+  "WATCHLIST": {
+    "FAVORITE_MOVIES_SHOWS_HEADING": "Favorite Movies/Shows",
+    "ADDED_TO_WATCH_LATER_HEADING": "Added to Watch Later list",
+    "WATCHED_MOVIES_SHOWS_HEADING": "Watched Movies/Shows",
+    "WISHLIST_EMPTY_LABEL": "Your wishlist is empty",
+    "WISHLIST_EMPTY_SUB_LABEL": "Browse, watch and mark the movies as Favorites."
+  },
+
+  "SEARCHBAR": {
+    "PLACEHOLDER": "action/horror..."
+  },
+
+  "DASHBOARD": {
+    "SEARCH": {
+      "NOT_FOUND": "No match found for your request",
+      "SEARCH_HINT": "Try using with different keywords like action, comedy, movie etc"
+    }
+  },
+
+  "MOVIE": {
+    "DESCRIPTION": "Brief Description",
+    "WATCH_NOW_LABEL": "Watch Now",
+    "LIKES_THIS_LABEL": "likes this",
+    "IMDB_RATING_LABEL": "IMDB Rating"
+  },
+
+  "LOGIN": {
+    "HEADING": "Login using emailid and password",
+    "TITLE": "Login",
+    "EMAILID_PLACEHOLDER": "EmailId",
+    "PASSWORD_PLACEHOLDER": "Password",
+    "LOGIN_BTN": "Login",
+    "INVALID_EMAILID": "Invalid Email Id.",
+    "FIELD_REQUIRED": "Required",
+    "LOGIN_FAILED": "Invalid EmailId or Password"
+  }
+}

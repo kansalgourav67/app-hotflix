@@ -1,0 +1,13 @@
+<div class="wrap">
+  <form (ngSubmit)="applySearch()" [formGroup]="searchBarForm" class="search">
+    <input
+      type="text"
+      class="searchTerm"
+      formControlName="searchControl"
+      placeholder="{{ 'SEARCHBAR.PLACEHOLDER' | translate }}?"
+    />
+    <button type="submit" class="searchButton">
+      <mat-icon>search</mat-icon>
+    </button>
+  </form>
+</div>

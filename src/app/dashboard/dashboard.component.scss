@@ -1,0 +1,26 @@
+.dashboard {
+  display: inline;
+  float: left;
+  margin: 18px;
+}
+
+.search-bar {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.pagination-control {
+  clear: both;
+  display: flex;
+  justify-content: center;
+  padding: 18px 5px 10px 0px;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+h1 {
+  margin-left: 15px;
+}

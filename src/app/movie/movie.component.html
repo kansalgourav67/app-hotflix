@@ -1,0 +1,25 @@
+<mat-card class="movie-card">
+  <div class="img-container">
+    <img
+      width="300"
+      height="320"
+      mat-card-image
+      [src]="movie.imageUrl"
+      alt="Image Not Found"
+    />
+    <div class="prime-tag">
+      <mat-chip-list>
+        <mat-chip *ngIf="movie?.isPrime" class="prime-chip">Prime</mat-chip>
+      </mat-chip-list>
+    </div>
+  </div>
+
+  <mat-card-content>
+    <div class="movie-title">
+      {{ movie.title }}
+    </div>
+    <div>
+      <small class="movie-description">{{ movieDescriptionText }}</small>
+    </div>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,7 @@
+<div class="carousel-container">
+  <div *ngFor="let movie of movies" class="card">
+    <a [routerLink]="['/movie-details', movie.id]" routerLinkActive="active">
+      <app-movie [movie]="movie"></app-movie>
+    </a>
+  </div>
+</div>

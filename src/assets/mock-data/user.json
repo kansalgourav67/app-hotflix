@@ -1,0 +1,18 @@
+[
+  {
+    "userId": 1,
+    "userName": "New User",
+    "emailId": "new.user@gmail.com",
+    "password": "new.user",
+    "mobileNumber": "9876543210",
+    "isAdmin": false
+  },
+  {
+    "userId": 2,
+    "userName": "admin",
+    "emailId": "admin@gmail.com",
+    "password": "admin",
+    "mobileNumber": "1234567890",
+    "isAdmin": true
+  }
+]

@@ -1,0 +1,28 @@
+<div *ngIf="movies | filter: searchText as filteredMovies">
+  <h1>{{ categorySelected }}</h1>
+  <div
+    *ngFor="
+      let movie of filteredMovies
+        | paginate: { itemsPerPage: 12, currentPage: p }
+    "
+    class="dashboard"
+  >
+    <a (click)="navigateToMovieDetails(movie)" routerLinkActive="active">
+      <app-movie [movie]="movie"></app-movie>
+    </a>
+  </div>
+  <div
+    *ngIf="filteredMovies.length > 0; else emptyMovieTemplate"
+    class="pagination-control"
+  >
+    <pagination-controls
+      [responsive]="paginationResponsive"
+      (pageChange)="p = $event"
+    ></pagination-controls>
+  </div>
+</div>
+
+<ng-template #emptyMovieTemplate>
+  <h2>{{ "DASHBOARD.SEARCH.NOT_FOUND" | translate }}.</h2>
+  <h3>{{ "DASHBOARD.SEARCH.SEARCH_HINT" | translate }}.</h3>
+</ng-template>

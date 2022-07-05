@@ -1,0 +1,104 @@
+[
+  {
+    "categoryId": 1,
+    "categoryName": "Movies",
+    "subCategory": [
+      {
+        "categoryId": 11,
+        "categoryName": "By Genre",
+        "subCategory": [
+          {
+            "categoryId": 111,
+            "categoryName": "Action",
+            "subCategory": []
+          },
+          {
+            "categoryId": 112,
+            "categoryName": "Horror",
+            "subCategory": []
+          },
+          {
+            "categoryId": 113,
+            "categoryName": "Comedy",
+            "subCategory": []
+          }
+        ]
+      },
+      {
+        "categoryId": 12,
+        "categoryName": "By Language",
+        "subCategory": [
+          {
+            "categoryId": 121,
+            "categoryName": "English",
+            "subCategory": []
+          },
+          {
+            "categoryId": 122,
+            "categoryName": "Hindi",
+            "subCategory": []
+          }
+        ]
+      },
+      {
+        "categoryId": 13,
+        "categoryName": "Telivision",
+        "subCategory": [
+          {
+            "categoryId": 132,
+            "categoryName": "Bollywood",
+            "subCategory": []
+          },
+          {
+            "categoryId": 131,
+            "categoryName": "Hollywood",
+            "subCategory": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "categoryId": 2,
+    "categoryName": "Web shows",
+    "subCategory": [
+      {
+        "categoryId": 21,
+        "categoryName": "By Genre",
+        "subCategory": [
+          {
+            "categoryId": 211,
+            "categoryName": "Action",
+            "subCategory": []
+          },
+          {
+            "categoryId": 212,
+            "categoryName": "Horror",
+            "subCategory": []
+          },
+          {
+            "categoryId": 213,
+            "categoryName": "Comedy",
+            "subCategory": []
+          }
+        ]
+      },
+      {
+        "categoryId": 22,
+        "categoryName": "By Language",
+        "subCategory": [
+          {
+            "categoryId": 221,
+            "categoryName": "English",
+            "subCategory": []
+          },
+          {
+            "categoryId": 222,
+            "categoryName": "Hindi",
+            "subCategory": []
+          }
+        ]
+      }
+    ]
+  }
+]

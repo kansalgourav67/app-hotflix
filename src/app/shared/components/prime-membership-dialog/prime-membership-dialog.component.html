@@ -1,0 +1,10 @@
+<h1 mat-dialog-title>Join Prime Membership</h1>
+<div mat-dialog-content>
+  Hi {{ user?.userName }}, Do you want to opt in prime membership free of cost?
+</div>
+<mat-dialog-actions align="start">
+  <button mat-button [mat-dialog-close]="true" (click)="joinPrimeMembership()">
+    Yes
+  </button>
+  <button mat-button mat-dialog-close>No</button>
+</mat-dialog-actions>

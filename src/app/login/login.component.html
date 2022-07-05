@@ -1,0 +1,61 @@
+<mat-card class="login-card">
+  <mat-card-header>
+    <mat-card-title>{{ "LOGIN.TITLE" | translate }}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="mt-50">
+        <mat-form-field class="full-width">
+          <input
+            type="email"
+            matInput
+            placeholder="{{ 'LOGIN.EMAILID_PLACEHOLDER' | translate }}"
+            formControlName="emailId"
+            name="emailId"
+            required
+          />
+          <mat-error
+            *ngIf="
+              loginForm.get('emailId')?.hasError('email') &&
+              !loginForm.get('emailId')?.hasError('required')
+            "
+          >
+            {{ "LOGIN.INVALID_EMAILID" | translate }}.
+          </mat-error>
+          <mat-error *ngIf="loginForm.get('emailId')?.hasError('required')">
+            {{ "LOGIN.FIELD_REQUIRED" | translate }}
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="full-width">
+          <input
+            matInput
+            placeholder="{{ 'LOGIN.PASSWORD_PLACEHOLDER' | translate }}"
+            formControlName="password"
+            type="password"
+            name="password"
+            required
+          />
+          <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
+            {{ "LOGIN.FIELD_REQUIRED" | translate }}
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="login-btn">
+        <button
+          class="full-width"
+          [disabled]="!loginForm.valid"
+          type="submit"
+          mat-raised-button
+          color="primary"
+        >
+          {{ "LOGIN.LOGIN_BTN" | translate }}
+        </button>
+      </div>
+    </form>
+  </mat-card-content>
+  <mat-card-footer *ngIf="loginFailed" class="card-footer">
+    {{ "LOGIN.LOGIN_FAILED" | translate }}
+  </mat-card-footer>
+</mat-card>

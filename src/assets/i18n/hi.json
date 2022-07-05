@@ -1,0 +1,82 @@
+{
+  "APP": {
+    "FOOTER": "हॉटफ्लिक्स(2022-23)। यह एप्लिकेशन स्थानीय भंडारण से संबंधित है। स्पष्ट करने के लिए बटन क्लिक करें",
+    "ACCESS_DENIED": "आपको इस सामग्री को देखने की अनुमति नहीं है।",
+    "PAGE_NOT_FOUND": "404 पृष्ठ नहीं मिला"
+  },
+
+  "ADMIN": {
+    "ADD_NEW_CONTENT": "नई सामग्री जोड़ें",
+    "NAME_FIELD": "नाम",
+    "DESCRIPTION_FIELD": "विवरण",
+    "TITLE_FIELD": "शीर्षक",
+    "GENRE_FIELD": "शैली",
+    "LANGUAGE_FIELD": "भाषा",
+    "NAME_FIELD_PLACEHOLDER": "नाम दर्ज",
+    "FIELD_REQUIRED": "आवश्यक",
+    "TITLE_FIELD_PLACEHOLDER": "शीर्षक दर्ज करें",
+    "DESCRIPTION_FIELD_PLACEHOLDER": "विवरण दर्ज करें",
+    "ENGLISH_LABEL": "अंग्रेज़ी",
+    "HINDI_LABEL": "हिन्दी",
+    "BOTH_LABEL": "दोनों",
+    "GENRE_FIELD_PLACEHOLDER": "चुनना",
+    "ACTION_LABEL": "गतिविधि",
+    "COMEDY_LABEL": "कॉमेडी",
+    "HORROR_LABEL": "डरावना",
+    "IMDB_RATING_FIELD": "आईएमडीबी रेटिंग",
+    "INVALID_INPUT": "अमान्य निवेश",
+    "DURATION_FIELD": "अवधि दर्ज करें",
+    "DURATION_FIELD_PLACEHOLDER": "मिनटों में अवधि दर्ज करें",
+    "ADD_BUTTON": "जोड़ें",
+    "RESET_BUTTON": "रीसेट",
+    "ADMINISTRATION_LABEL": "प्रशासन",
+    "ADMIN_SUBHEADING_LABEL": "मूवी और शो प्रबंधित करें"
+  },
+  "NAVBAR": {
+    "MOVIES": "चलचित्र",
+    "PROFILE": "प्रोफ़ाइल",
+    "PRIME_MEMBERSHIP": "प्राइम सब्सक्रिप्शन",
+    "PRIME_MEMBER": "प्रधान सदस्य",
+    "PRIME_MOVIES": "प्राइम मूवीज",
+    "WATCHLIST": "ध्यानसूची",
+    "MANAGE_MOVIES": "प्रशासन",
+    "LOGIN": "लॉग इन करें",
+    "LOGOUT": "लॉग आउट"
+  },
+  "WATCHLIST": {
+    "FAVORITE_MOVIES_SHOWS_HEADING": "पसंदीदा फिल्में / शो",
+    "ADDED_TO_WATCH_LATER_HEADING": "बाद में देखने की सूची में जोड़ा गया",
+    "WATCHED_MOVIES_SHOWS_HEADING": "फिल्में/शो देखीं",
+    "WISHLIST_EMPTY_LABEL": "अपकि इच्छा सूची खाली है",
+    "WISHLIST_EMPTY_SUB_LABEL": "फिल्मों को पसंदीदा के रूप में ब्राउज़ करें, देखें और चिह्नित करें।"
+  },
+
+  "SEARCHBAR": {
+    "PLACEHOLDER": "एक्शन/डरावनी..."
+  },
+
+  "DASHBOARD": {
+    "SEARCH": {
+      "NOT_FOUND": "आपके अनुरोध के लिए कोई मिलान नहीं मिला",
+      "SEARCH_HINT": "एक्शन, कॉमेडी, मूवी आदि जैसे विभिन्न कीवर्ड के साथ प्रयोग करने का प्रयास करें"
+    }
+  },
+
+  "MOVIE": {
+    "DESCRIPTION": "संक्षिप्त विवरण",
+    "WATCH_NOW_LABEL": "अब देखिए",
+    "LIKES_THIS_LABEL": "इसे पसंद करता है",
+    "IMDB_RATING_LABEL": "आईएमडीबी रेटिंग"
+  },
+
+  "LOGIN": {
+    "HEADING": "ईमेल आईडी और पासवर्ड का उपयोग करके लॉगिन करें",
+    "TITLE": "लॉग इन करें",
+    "EMAILID_PLACEHOLDER": "ईमेल आईडी",
+    "PASSWORD_PLACEHOLDER": "पासवर्ड",
+    "LOGIN_BTN": "लॉग इन करें",
+    "INVALID_EMAILID": "अमान्य ईमेल आईडी।",
+    "FIELD_REQUIRED": "आवश्यक",
+    "LOGIN_FAILED": "अमान्य ईमेल आईडी या पासवर्ड"
+  }
+}

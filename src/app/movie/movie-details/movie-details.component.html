@@ -1,0 +1,71 @@
+<div
+  *ngIf="movie; else movieNotFoundTemplate"
+  class="container movie-details-container"
+  flex
+  fxLayout="row"
+  fxLayout.xs="column"
+  fxLayoutGap="20px"
+  fxLayoutGap.xs="2px"
+  fxLayoutGap.sm="3px"
+>
+  <div fxFlex="40">
+    <img [src]="movie.imageUrl" alt="Image not found" />
+
+    <div class="mt-lg btn-container">
+      <button
+        class="m-md watch-now-btn"
+        mat-raised-button
+        (click)="watchNowClickedEvent()"
+      >
+        {{ "MOVIE.WATCH_NOW_LABEL" | translate }}
+      </button>
+      <button (click)="toggleFavorite()" mat-fab>
+        <mat-icon *ngIf="!isMarkedFavorite">favorite_border</mat-icon>
+        <mat-icon *ngIf="isMarkedFavorite">favorite</mat-icon>
+      </button>
+      <button (click)="toggleWatchLater()" class="m-md" mat-fab>
+        <mat-icon *ngIf="!isMarkedWatchLater">add_circle_outline</mat-icon>
+        <mat-icon *ngIf="isMarkedWatchLater">add_circle</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <div fxFlex="60">
+    <div class="movie-title-container mt-md">
+      <div class="title">
+        <h1>{{ movie.title }}</h1>
+      </div>
+      <div class="favorite-icon">
+        <h2>
+          <mat-icon>favorite</mat-icon> {{ movie.rating * 10 }}%
+          {{ "MOVIE.LIKES_THIS_LABEL" | translate }}
+        </h2>
+      </div>
+      <div class="mt-lg imdb-rating">
+        {{ "MOVIE.IMDB_RATING_LABEL" | translate }}: {{ movie.rating }}/10
+      </div>
+      <div class="mt-lg">
+        <mat-chip-list>
+          <mat-chip>3D</mat-chip>
+          <mat-chip>{{ movie?.genre }}</mat-chip>
+          <mat-chip>{{ movie?.language }}</mat-chip>
+          <mat-chip>{{ movieDuration }}</mat-chip>
+          <mat-chip *ngIf="movie?.isPrime" class="prime-chip">Prime</mat-chip>
+        </mat-chip-list>
+      </div>
+    </div>
+
+    <div class="mt-xl">
+      <h3>{{ "MOVIE.DESCRIPTION" | translate }}</h3>
+      <p>{{ movie.description }}</p>
+    </div>
+
+    <mat-divider></mat-divider>
+  </div>
+</div>
+
+<ng-template #movieNotFoundTemplate>
+  <div class="container">
+    <h1>Movie Not Found</h1>
+  </div>
+</ng-template>

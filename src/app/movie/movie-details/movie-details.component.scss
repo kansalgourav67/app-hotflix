@@ -1,0 +1,74 @@
+img {
+  height: 450px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.movie-title-container {
+  padding: 10px;
+  border: 1.5px solid grey;
+  box-shadow: 2px 2px 2px 2px darkgray;
+  //background-color: lightgrey;
+}
+
+mat-icon {
+  color: red;
+}
+
+mat-chip {
+  border-radius: 0;
+}
+
+.prime-chip {
+  background-color: darkslategray;
+  color: white;
+}
+
+button {
+  background-color: rgba(0, 0, 0, 0.9) !important;
+  color: white;
+}
+
+.watch-now-btn {
+  border: 2px solid white;
+  width: 250px;
+  height: 50px;
+}
+
+.btn-container {
+  width: 100%;
+}
+
+.favorite-icon {
+  float: right;
+}
+
+.title {
+  float: left;
+}
+
+.imdb-rating {
+  font-weight: 500;
+  clear: both;
+}
+
+p {
+  font-weight: 400;
+  word-spacing: 5px;
+}
+
+.mt-xl {
+  margin-top: 25px;
+}
+
+.mt-md {
+  margin-top: 10px;
+}
+
+.mt-lg {
+  margin-top: 15px;
+}
+
+.m-md {
+  margin: 10px;
+}

@@ -1,0 +1,11 @@
+<div class="app-container">
+  <app-nav-bar></app-nav-bar>
+  <app-category-tree></app-category-tree>
+  <div class="app-body">
+    <router-outlet></router-outlet>
+  </div>
+  <div class="footer">
+    &copy; {{ "APP.FOOTER" | translate }}
+    <button mat-raised-button (click)="clearLocalStorage()">Clear</button>
+  </div>
+</div>

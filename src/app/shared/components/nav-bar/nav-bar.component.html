@@ -1,0 +1,102 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <div class="navbar-items">
+      <a
+        class="navbar-item hotflix-title"
+        mat-button
+        routerLinkActive="active"
+        routerLink=""
+      >
+        HotFlix
+      </a>
+      <a
+        class="navbar-item"
+        mat-button
+        routerLinkActive="active"
+        [routerLink]="''"
+      >
+        {{ "NAVBAR.MOVIES" | translate }}
+      </a>
+      <a
+        *ngIf="!hasPrimeSubscription && !user?.isAdmin"
+        routerLink=""
+        class="navbar-item"
+        mat-button
+        routerLinkActive="active"
+        (click)="primeSubscriptionClickEvent()"
+      >
+        {{ "NAVBAR.PRIME_MEMBERSHIP" | translate }}
+      </a>
+      <a
+        *ngIf="hasPrimeSubscription && !user?.isAdmin"
+        class="navbar-item"
+        mat-button
+        routerLinkActive="active"
+        [routerLink]="'prime-movies'"
+      >
+        {{ "NAVBAR.PRIME_MOVIES" | translate }}
+      </a>
+      <a
+        *ngIf="isAuthenticated && !user?.isAdmin"
+        class="navbar-item"
+        mat-button
+        routerLinkActive="active"
+        [routerLink]="'watchlist'"
+      >
+        {{ "NAVBAR.WATCHLIST" | translate }}
+      </a>
+      <a
+        *ngIf="isAuthenticated && user?.isAdmin"
+        class="navbar-item"
+        mat-button
+        routerLinkActive="active"
+        [routerLink]="'admin'"
+      >
+        {{ "NAVBAR.MANAGE_MOVIES" | translate }}
+      </a>
+    </div>
+
+    <span class="navbar-spacer"></span>
+
+    <div class="navbar-items">
+      <a
+        *ngIf="!isAuthenticated"
+        class="navbar-item"
+        mat-button
+        routerLinkActive="active"
+        routerLink="login"
+      >
+        {{ "NAVBAR.LOGIN" | translate }}
+      </a>
+      <a
+        *ngIf="isAuthenticated"
+        routerLink=""
+        class="navbar-item"
+        mat-button
+        routerLinkActive="active"
+        (click)="onLogout()"
+      >
+        {{ "NAVBAR.LOGOUT" | translate }}
+      </a>
+      <div ngbDropdown class="d-inline-block navbar-item">
+        <button
+          type="button"
+          class="btn btn-outline-primary"
+          id="dropdownBasic1"
+          ngbDropdownToggle
+        >
+          {{ language }}
+        </button>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+          <button (click)="languageSelected('en')" ngbDropdownItem>
+            English
+          </button>
+          <button (click)="languageSelected('hi')" ngbDropdownItem>
+            Hindi
+          </button>
+        </div>
+      </div>
+    </div>
+    <app-search-bar></app-search-bar>
+  </mat-toolbar-row>
+</mat-toolbar>

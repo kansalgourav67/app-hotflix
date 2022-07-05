@@ -1,0 +1,47 @@
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
+  <a class="nav-item movies-link" (click)="selectAllMovies()">See All</a>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li *ngFor="let category of movieCategories" class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle"
+          id="navbarDropdown"
+          role="button"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          {{ category.categoryName }}
+        </a>
+
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <div class="container">
+            <div class="row">
+              <div
+                *ngFor="let subCategory of category.subCategory"
+                class="col-md-4"
+              >
+                <span class="text-uppercase text-black">{{
+                  subCategory?.categoryName
+                }}</span>
+                <ul class="nav flex-column">
+                  <li
+                    *ngFor="let child of subCategory.subCategory"
+                    class="nav-item"
+                  >
+                    <a
+                      class="nav-link category-item"
+                      (click)="onCategoryChange(child.categoryId)"
+                      >{{ child?.categoryName }}</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
